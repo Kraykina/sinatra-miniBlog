@@ -20,6 +20,7 @@ configure do
 	(
 		id INTEGER PRIMARY KEY AUTOINCREMENT,
 		created_date DATE,
+		username TEXT,
 		content TEXT
 	)'
 
@@ -27,6 +28,7 @@ configure do
 	(
 		id INTEGER PRIMARY KEY AUTOINCREMENT,
 		created_date DATE,
+		username TEXT,
 		content TEXT,
 		post_id integer
 	)'
@@ -46,6 +48,7 @@ end
 
 post '/new' do
 	content = params[:content]
+	username = params[:username]
 
 	if content.length <= 0
 		@error = 'Type post text'
